@@ -1,11 +1,9 @@
 import prisma from "@/app/lib/prisma";
 import { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import GoogleProvider from "next-auth/providers/google";
+
 import * as bcrypt from "bcrypt";
 import NextAuth from "next-auth/next";
-
-import { use } from "react";
 import { User } from "@prisma/client";
 
 export const authOptions: AuthOptions = {
@@ -19,7 +17,7 @@ export const authOptions: AuthOptions = {
     secret: process.env.NEXTAUTH_SECRET,
   },
   providers: [
-    GoogleProvider({
+    /* GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID ?? "",
       clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
       idToken: true,
@@ -29,7 +27,7 @@ export const authOptions: AuthOptions = {
           scope: "openid profile email",
         },
       },
-    }),
+    }), */
     CredentialsProvider({
       name: "Credentials",
 
